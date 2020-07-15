@@ -34,6 +34,18 @@ function Calculate() {
 
       let step1Temp = Math.max(Number(municipalValue.value), Number(fairRent.value));
 
+      /** If Standard Rent not provided by User it will
+        set to municipal value or fair rent **/
+      if (standardRent.value === "") {
+        if (municipalValue.value != "") {
+          standardRent.value = municipalValue.value;
+        }
+        else if (municipalValue.value === "") {
+          standardRent.value = fairRent.value;
+        }
+      };
+
+
       if (step1Temp > (Number(standardRent.value))) {
         step1 = Number(standardRent.value);
       }
